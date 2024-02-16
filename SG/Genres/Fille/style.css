@@ -1,0 +1,94 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header {
+  background-color: #4d4747;
+  display: flex;
+  height: 15vh;
+  width: 100%;
+}
+header div:nth-of-type(1) {
+  flex: 30%;
+  margin: 1%;
+  margin-right: 25%;
+}
+header img:nth-child(1) {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+header div:nth-of-type(2) {
+  flex: 8%;
+  height: 40%;
+  margin: 1%;
+  margin-right: 2%;
+}
+header img:nth-child(2) {
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+}
+header input {
+  flex: 60%;
+  height: 30%;
+  margin: auto;
+  margin-right: 25%;
+  border-radius: 5vh;
+  border-style: none;
+  text-align: center;
+  background-color: #cec8c8;
+}
+header nav {
+  flex: 10%;
+  background-color: red;
+  margin: 1%;
+  margin-left: 0%;
+  height: 30%;
+  text-align: center;
+}
+main {
+  height: 110vh;
+  width: 100%;
+  background-image: url('/Genres/Fille/Images/Fille.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+main div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 0%;
+  margin-left: 22.5%;
+  margin-top: 0px;
+  width: 55%;
+}
+main h2 {
+  height: 4vh;
+  text-align: center;
+  align-items: center;
+  font-size: xx-large;
+  margin-top: 1vh;
+}
+article {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  text-align: center;
+  text-shadow: 1px 1px 3px gray;
+  width: 15%;
+  margin: 50px;
+}
+article img {
+  object-fit: scale-down;
+  width: 100%;
+}

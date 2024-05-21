@@ -9,14 +9,14 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'
     $email = $_POST['email'];
     $password = $_POST['mdp'];
     $password = password_hash($_POST['mdp'],PASSWORD_DEFAULT).
- 
+
     var_dump($nom);
     var_dump($prenom);
     var_dump($adresse);
     var_dump($tel);
     var_dump($email);
     var_dump($password);
- 
+
     $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3306;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
@@ -29,7 +29,7 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'
     $req->bindValue(':email_Clients', $email);
     $req->bindValue(':pwd_Clients', $password);
     $resultat = $req->execute();
- 
+
     if ($resultat) {
         echo "Inscription réussie";
         header('Location: '. "/login");

@@ -14,65 +14,70 @@ try{
         // echo "</pre>";
         switch($url[0]){
             case "accueil" : require_once "Views/accueil.view.php";
-
-            break;
-    
-            case "crud"  : //&& $_SESSION['nom']==="admin" : // <-- A rajouter en enlevant les deux point devant crud
-                if(empty($url[1])){
-                    $ArticleController->afficherArticles();
-                    break;
-                }else if($url[1] === "l"){
-                    $ArticleController->afficherArticle(intval($url[2]));
-                    break;
-                }else if($url[1] === "a"){
-                    $ArticleController->ajoutArticle();
-                    break;
-                }else if($url[1] === "m"){
-                    $ArticleController->modificationArticle($url[2]); 
-                    break; 
-                }else if($url[1] === "s"){
-                    $ArticleController->suppressionArticle($url[2]);
-                    break;
-                }else if($url[1] === "av"){
-                    $ArticleController->ajoutArticleValidation();
-                    break;
-                }else if($url[1] === "mv"){
-                    $ArticleController->modifArticleValidation();
-                    break;
-                }else{
-                    throw new Exception("La page n'existe pas");
-                }
             
-            case "homme" :
-                require_once "Views/homme.php";
-
             break;
+            
+            case "crud":
+                if (isset($_SESSION['nom']) && $_SESSION['nom'] === "admin") {
+                    if (empty($url[1])) {
+                        $ArticleController->afficherArticles();
+                    } else if ($url[1] === "l") {
+                        $ArticleController->afficherArticle(intval($url[2]));
+                    } else if ($url[1] === "a") {
+                        $ArticleController->ajoutArticle();
+                    } else if ($url[1] === "m") {
+                        $ArticleController->modificationArticle($url[2]);
+                    } else if ($url[1] === "s") {
+                        $ArticleController->suppressionArticle($url[2]);
+                    } else if ($url[1] === "av") {
+                        $ArticleController->ajoutArticleValidation();
+                    } else if ($url[1] === "mv") {
+                        $ArticleController->modifArticleValidation();
+                    } else {
+                        throw new Exception("La page n'existe pas");
+                    }
+                } else {
+                    throw new Exception("Accès non autorisé");
+                }
+                break;
+
+            case "homme":
+                require_once "Views/homme.php";
+                break;
+
             case "femme":
                 require_once "Views/femme.php";
-            break;
+                break;
+
             case "fille":
                 require_once "Views/fille.php";
-            break;
+                break;
+
             case "garçon":
                 require_once "Views/garcon.php";
-            break;
+                break;
+
             case "panier":
                 require_once "Views/panier.view.php";
-            break;
-            case"login":
+                break;
+
+            case "login":
                 require_once "Views/login.view.php";
-            break;
-            case"register":
+                break;
+
+            case "register":
                 require_once "Views/register.view.php";
-            break;
-            case"compte":
+                break;
+
+            case "compte":
                 require_once "Views/compte.view.php";
-            break;
-           
-            default: throw new Exception("La page n'existe pas");
-            }
+                break;
+
+            default:
+                throw new Exception("La page n'existe pas");
         }
-    }catch(Exception $e){
-        echo $e->getMessage();
     }
-    
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+?>

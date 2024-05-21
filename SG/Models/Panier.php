@@ -10,7 +10,7 @@ require_once "./Article.class.php";
         $idClient = $_SESSION['idClient'];
         print_r($idArticle);
         print_r($idClient);
-        $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3306;charset=utf8','root','');
+        $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3308;charset=utf8','root','');
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
         $req = $pdo->prepare('INSERT INTO panier (idClients_Panier, idArticles_Panier) VALUES (:idClients_Panier, :idArticles_Panier)');

@@ -11,7 +11,13 @@ require_once "Models/PanierManager.php";
 <link rel="stylesheet" href="../Genres/style.css">
 <?php $panierManager = new PanierManager();
         $panierManager->chargementPanier();
-        $panier = $panierManager->getPanier(); ?>
+        $panier = $panierManager->getPanier(); 
+
+        $ArticleController = new ArticleController;
+
+     
+        
+?>
 
 <div class="table-responsive"
 >
@@ -23,8 +29,15 @@ require_once "Models/PanierManager.php";
                 Votre Panier
             </caption>
             <tr>
-            <?php for($i=0;$i<count($panier);$i++) : ?>
-                <th><?=$panier[$i]->getIdArticle();?></th>
+            <?php for($i=0;$i<count($panier);$i++) : 
+                ?>
+                  
+                <th><?= 
+                $ArticleController->afficherArticle($panier[$i]->getIdArticle());
+                
+                ?></th>
+              
+
 
                 <?php endfor ?>
             </tr>

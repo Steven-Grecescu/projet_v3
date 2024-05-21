@@ -26,6 +26,12 @@ class ArticleController{
         require "Views/afficherArticle.view.php";
     }
 
+    public function afficherArticlePanier($id){
+        $articles = $this->articleManager->getArticleById($id);
+        require "Views/panier.view.php";
+
+    }
+
     public function ajoutArticle(){
         require_once "Views/ajoutArticle.view.php";
     }

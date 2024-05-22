@@ -58,7 +58,7 @@ header nav {
 main {
   height: 110vh;
   width: 100%;
-  background-image: url('/Genres/Femmes/Images/femme.jpg');
+  background-image: url('/public/images/femme.jpg');
   background-color: #312721;
   background-size: 110vh 140vh;
   background-position: center;

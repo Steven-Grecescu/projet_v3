@@ -22,20 +22,20 @@ require_once "Models/ArticleManager.php";
     <input type="number" id="prix" name="prix" value=""><br><br>
 <select id="genre" name="genre">
     <option value="">Choisir un genre</option>
-    <option value="femme">Femme</option>
-    <option value="homme">Homme</option>
-    <option value="fille">Fille</option>
-    <option value="garçon">Garçon</option>
+    <option value="Femme">Femme</option>
+    <option value="Homme">Homme</option>
+    <option value="Fille">Fille</option>
+    <option value="Garçon">Garçon</option>
 </select> <br><br>
 <select id="type" name="type">
     <option value="">Choisir un type de vetement</option>
-    <option value="jean">jean</option>
-    <option value="polo">polo</option>
-    <option value="pantalon">pantalon</option>
-    <option value="shirt">shirt</option>
-    <option value="tshirt">tshirt</option>
-    <option value="robe">robe</option>
-    <option value="vest">veste</option>
+    <option value="Jean">Jean</option>
+    <option value="Polo">Polo</option>
+    <option value="Pantalon">Pantalon</option>
+    <option value="Shirt">Shirt</option>
+    <option value="Tshirt">Tshirt</option>
+    <option value="Robe">Robe</option>
+    <option value="Vest">Veste</option>
 
 
 </select> <br> <br>

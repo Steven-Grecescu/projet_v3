@@ -240,13 +240,6 @@ footer button:hover .main-block {
   width: 5%;
   height: 5%;
   right: 200px;
-  opacity: 100%;
-  transition: 0.8s;
-}
-.btn.active {
-  right: 200px;
-  opacity: 0;
-  transition: 0.8s;
 }
 .showcase {
   position: absolute;
@@ -257,7 +250,6 @@ footer button:hover .main-block {
   transition: 0.8s;
   background-image: none;
   overflow: hidden;
-  /* Hide horizontal scrollbar */
   z-index: 1;
 }
 .showcase.active {
@@ -265,7 +257,6 @@ footer button:hover .main-block {
   top: 0px;
   bottom: 1px;
   overflow: hidden;
-  /* Hide horizontal scrollbar */
   transition: 0.8s;
   z-index: 1;
 }

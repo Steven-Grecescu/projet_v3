@@ -12,7 +12,7 @@ require_once "Models/ArticleManager.php";
         <h2>Hommes</h2>
 <div>        
         <?php for($i=0;$i<count($articles);$i++) : ?>
-        <?php if($articles[$i]->getGenreArticle() === "homme") : ?>
+        <?php if($articles[$i]->getGenreArticle() === "Homme") : ?>
 <article>
 <a href="<?= URL ?>crud/l/<?= $articles[$i]->getIdArticle();?>"><img src="../public/images/<?= $articles[$i]->getImageArticle(); ?>" alt="IMG"></a>
     <h3><?= $articles[$i]->getNomArticle();?></h3>

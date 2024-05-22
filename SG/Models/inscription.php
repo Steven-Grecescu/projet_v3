@@ -16,13 +16,8 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'
     var_dump($tel);
     var_dump($email);
     var_dump($password);
-<<<<<<< HEAD
- 
-    $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3308;charset=utf8','root','');
-=======
 
     $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3306;charset=utf8','root','');
->>>>>>> a785b4cabdf425038b7bafb73552c4fc3082adf4
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
     /*Ici on a une requête qui va nous permettre d'entrer l'email et le mot de passe de l'utilisateur */

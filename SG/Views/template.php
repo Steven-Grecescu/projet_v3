@@ -35,16 +35,16 @@
           <a href="/panier">Panier</a>
           <?php if($_SESSION['nom']=="admin"){
 
-           ?>
+          ?>
               <a href="crud">GESTION DU STOCK</a>
               <?php }?>
-         
+        
           <button class="closeMenu">X</button>
         </ul>
       </div>
     </section>
     <a href="login"><img src="/images/icons8-login-50.png" alt=""></a>
-        <button class="btn">Menu</button>
+      <button class="btn"> <img src="/public/images/menu-burger.png" alt=""></button>
     </header>
 
     <script src="/script.js"> </script>

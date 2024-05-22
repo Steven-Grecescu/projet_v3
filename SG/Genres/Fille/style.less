@@ -1,3 +1,4 @@
+/* Reinitialisation des bordures du navigateur */
 *,
 ::before,
 ::after {
@@ -64,23 +65,26 @@ header{
 main{
     height: 110vh;
     width: 100%;
-    background-image: url('/Genres/Fille/Images/Fille.jpg');
-    background-size:cover;
+    background-image: url('/public/images/fille.jpg');
+    background-color: #9aaaaa;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     
 
     div{
 
-         display: flex;
-         flex-wrap: wrap;
-         align-items: center;
-         padding-top: 0%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 0%;
         //  background-color: aqua;
-         margin-left: 22.5%;
-         margin-top: 0px;
-         width: 55%;
-         
+        margin-left: 22.5%;
+        margin-top: 0px;
+        width: 55%;
+        height: 0;
+        
     }
 
     h2{
@@ -96,6 +100,7 @@ main{
 article{
     display: flex;
     flex-flow: column wrap;
+    
     align-items: center;
     text-align: center;
     text-shadow: 1px 1px 3px gray;
@@ -106,11 +111,58 @@ article{
     margin: 50px;
 
     img{
-        object-fit: scale-down;
-        width: 100%;
+        object-fit: contain;
+        width: 200px;
+        height: 300px;
+        border-radius: 0%;
+        // background-color: #9aaaaa;
 
     }
     
 
     // background-color: rgb(223, 204, 204);
+}
+
+// Telephone
+@media screen and (max-width:384px){
+    main{
+        height: 100%;
+        width: 100%;
+        background-image: url('/Genres');
+        background-color: #9aaaaa;
+        background-size:100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        div{
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            
+            width: 100%;
+            height: 100%;
+            //  background-color: aqua;
+            article{
+                // background-color: rgb(223, 204, 204); 
+                margin: 15px;     
+                width: 30vh;
+                height: 30vh;
+            }
+        }
+    
+        h2{
+            height: 4vh;
+            text-align: center;
+            align-items: center;
+            // background-color: blue;
+            font-size:xx-large;
+            margin: 1vh;
+        }
+    
+        img{
+            object-fit:scale-down;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
 }

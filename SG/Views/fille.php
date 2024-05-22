@@ -11,7 +11,7 @@ require_once "Models/ArticleManager.php";
         <h2>Filles</h2>
         <div>        
         <?php for($i=0;$i<count($articles);$i++) : ?>
-            <?php if($articles[$i]->getGenreArticle() === "fille") : ?>
+            <?php if($articles[$i]->getGenreArticle() === "Fille") : ?>
 
 <article>
 <a href="<?= URL ?>crud/l/<?= $articles[$i]->getIdArticle();?>"><img src="../public/images/<?= $articles[$i]->getImageArticle(); ?>" alt="IMG"></a>

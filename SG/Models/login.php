@@ -9,7 +9,7 @@ if (!empty($_POST['email']) && !empty($_POST['mdp'])) {
     var_dump($email);
     var_dump($password);
 
-    $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3308;charset=utf8','root','');
+    $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3306;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
     $req = $pdo->prepare('SELECT * FROM clients WHERE email_Clients = :email_Clients');

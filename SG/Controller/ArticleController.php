@@ -21,13 +21,45 @@ class ArticleController{
         $articles = $this->articleManager->getArticle();
         require_once "Views/crud.php";
     }
-    public function afficherArticle($id){
-        $articles = $this->articleManager->getArticleById($id);
-        require "Views/afficherArticle.view.php";
-    }
+
+    public function afficherArticle($id) {
+            $article = $this->articleManager->getArticleById($id);
+    
+            if ($article) {
+                
+                return "<div>
+                            <h2>" . $article->getNomArticle() . "</h2>
+                            <img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $article->getImageArticle() . "' alt='img'>
+                            <p>Description : " . $article->getDescriptionArticle() . "</p>
+                            <p>Taille : " . $article->getTailleArticle() . "</p>
+                            <p>Prix : " . $article->getPrixArticle() . " €</p>
+                            <p>Ref : " . $article->getRefArticle() . "</p>
+                            <form method='POST' action='/Models/Panier.php'>
+                                <input type='hidden' name='idArticle' value='" . $article->getIdArticle() . "'>
+                                <button type='submit'>Ajouter au panier</button>
+                            </form>
+                        </div>";
+            } else {
+                return "<div class='article'>Article non trouvé</div>";
+            }
+        }
+
 
     public function afficherArticlePanier($id){
         $articles = $this->articleManager->getArticleById($id);
+
+        if ($articles) {
+                
+            return "<div>
+                        <h2>" . $articles->getNomArticle() . "</h2>
+                        <img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $articles->getImageArticle() . "' alt='img'>
+                        <p>Taille : " . $articles->getTailleArticle() . "</p>
+                        <p>Prix : " . $articles->getPrixArticle() . " €</p>
+                    </div>";
+        } else {
+            return "<div class='article'>Article non trouvé</div>";
+        }
+
         require "Views/panier.view.php";
 
     }
@@ -48,7 +80,7 @@ class ArticleController{
     private function ajoutImage($file, $dir){
         //Va d'abord vérifier si on a renseigné une image dans le formulaire
         if(!isset($file['name']) || empty($file['name']))
-            //si c'est ne pas le cas, on aurons une première erreur
+            //si c'est pas le cas, on aura une première erreur
             throw new Exception("Vous devez indiquer une image");
         
         //Ensuite, il va vérifier si le répertoire public/image existe
@@ -99,7 +131,6 @@ class ArticleController{
         }else{
             $nomImageAdd = $imageActuelle;
         }
-
         $this->articleManager->modifArticleBD($_POST['identifiant'],$_POST['nom'],$_POST['description'],$_POST['taille'],$_POST['prix'],$_POST['genre'],$_POST['type'],$_POST['ref'],$nomImageAdd);
         header('Location: '. URL . "crud");
     }

@@ -26,14 +26,16 @@
         <section class="showcase">
       <div class="menu">
         <ul>
+        <?php if (isset($_SESSION['nom'])): ?>
           <a href="/compte">Compte de <?= $_SESSION['nom'] ?></a>
+        <?php endif; ?>
           <a href="/accueil">Accueil</a>
           <a href="/homme">Homme</a>
           <a href="/femme">Femme</a>
           <a href="/garçon">Garçon</a>
           <a href="/fille">Fille</a>
           <a href="/panier">Panier</a>
-          <?php if($_SESSION['nom']=="admin"){
+          <?php if($_SESSION['role']=="admin"){
 
           ?>
               <a href="crud">GESTION DU STOCK</a>

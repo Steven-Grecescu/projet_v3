@@ -14,6 +14,7 @@ CREATE TABLE Clients (
     Adresse_Clients VARCHAR(60),
     pwd_Clients VARCHAR(60),
     tel_Clients VARCHAR(60),
+    role_Clients VARCHAR(60),
     PRIMARY KEY (idClients_Clients)
 ) ENGINE = InnoDB;
 

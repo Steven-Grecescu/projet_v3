@@ -18,7 +18,7 @@ try{
             break;
             
             case "crud":
-                if (isset($_SESSION['nom']) && $_SESSION['nom'] === "admin") {
+                if (isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
                     if (empty($url[1])) {
                         $ArticleController->afficherArticles();
                     } else if ($url[1] === "l") {
@@ -38,6 +38,14 @@ try{
                     }
                 } else {
                     throw new Exception("Accès non autorisé");
+                }
+                break;
+
+            case "article":
+                if (!empty($url[1])) {
+                    $ArticleController->afficherArticle(intval($url[1]));
+                } else {
+                    throw new Exception("Article non spécifié");
                 }
                 break;
 

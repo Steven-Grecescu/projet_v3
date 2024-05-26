@@ -10,24 +10,19 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'
     $password = $_POST['mdp'];
     $password = password_hash($_POST['mdp'],PASSWORD_DEFAULT).
 
-    var_dump($nom);
-    var_dump($prenom);
-    var_dump($adresse);
-    var_dump($tel);
-    var_dump($email);
-    var_dump($password);
-
-    $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3306;charset=utf8','root','');
+    $pdo = new PDO('mysql:host=localhost;dbname=magasin_de_vetements;port=3308;charset=utf8','root','');
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
     /*Ici on a une requête qui va nous permettre d'entrer l'email et le mot de passe de l'utilisateur */
-    $req = $pdo->prepare('INSERT INTO clients (nom_Clients, prenom_Clients, adresse_Clients, tel_Clients, email_Clients, pwd_Clients) VALUES (:nom_Clients, :prenom_Clients, :adresse_Clients, :tel_Clients , :email_Clients , :pwd_Clients)');
+    $req = $pdo->prepare('INSERT INTO clients (nom_Clients, prenom_Clients, adresse_Clients, tel_Clients, email_Clients, pwd_Clients, role_Clients) 
+        VALUES (:nom, :prenom, :adresse, :tel, :email, :pwd, :role)');
     $req->bindValue(':nom_Clients', $nom,);
     $req->bindValue(':prenom_Clients', $prenom);
     $req->bindValue(':adresse_Clients', $adresse);
     $req->bindValue(':tel_Clients', $tel);
     $req->bindValue(':email_Clients', $email);
-    $req->bindValue(':pwd_Clients', $password);
+    $req->bindValue(':pwd_Clients', $password); 
+    $req->bindValue(':role_Clients', 'user');
     $resultat = $req->execute();
 
     if ($resultat) {

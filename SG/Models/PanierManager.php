@@ -8,7 +8,9 @@ class PanierManager extends BDConnexion{
 
     public function getPanier(){return $this->panier;}
     public function chargementPanier(){
-        $req = $this->getBDD()->prepare('SELECT * FROM panier');
+        $idClient = $_SESSION['idClient'];
+        $req = $this->getBDD()->prepare('SELECT * FROM panier WHERE idClients_Panier = :idClient');
+        $req->bindValue(':idClient', $idClient);
         $req->execute();
         $mesArticlesPaniers = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();

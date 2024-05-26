@@ -5,7 +5,7 @@
     
     <h2> <?= $articles->getNomArticle() ?> </h2>
     <img id="imgafficher" src="<?= URL ?>../../../public/images/<?= $articles->getImageArticle();?>" alt="img">
-    <p>Desccription : <?= $articles->getDescriptionArticle(); ?></p>
+    <p>Description : <?= $articles->getDescriptionArticle(); ?></p>
     <p>Taille : <?= $articles->getTailleArticle();?></p>
     <p>Prix : <?= $articles->getPrixArticle();?> €  </p>
     <p>Ref : <?= $articles->getRefArticle();?></p>

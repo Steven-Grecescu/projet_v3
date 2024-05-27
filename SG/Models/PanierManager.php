@@ -5,7 +5,9 @@ class PanierManager extends BDConnexion{
     public function ajoutArticle($paniers){
         $this->panier[] = $paniers;
     }
+
     public function getPanier(){return $this->panier;}
+    
     public function chargementPanier(){
         $idClient = $_SESSION['idClient'];
         $req = $this->getBDD()->prepare('SELECT * FROM panier WHERE idClients_Panier = :idClient');

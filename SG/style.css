@@ -30,8 +30,8 @@ header img:nth-child(1) {
 header div:nth-of-type(2) {
   flex: 8%;
   height: 40%;
-  margin: 1%;
-  margin-right: 2%;
+  margin-top: 3%;
+  margin-right: 3%;
 }
 header img:nth-child(2) {
   object-fit: cover;
@@ -207,10 +207,14 @@ footer button:hover .main-block {
 }
 .btn {
   position: absolute;
-  margin-top: 30px;
-  width: 5%;
-  height: 5%;
-  right: 200px;
+  margin-top: 38px;
+  width: 6%;
+  height: 6%;
+  right: 180px;
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
 }
 .showcase {
   position: absolute;

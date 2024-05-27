@@ -24,7 +24,7 @@
     <!-- <button type="submit">Rechercher</button>
 </form> -->
         <div>
-            <a href="panier"><img src="/public/images/panier.png" alt=""></a>
+            <a href="panier"><img src="/public/images/panier.png" alt="panier"></a>
         </div>
         <section class="showcase">
       <div class="menu">

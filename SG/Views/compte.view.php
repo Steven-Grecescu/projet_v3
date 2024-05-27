@@ -13,7 +13,7 @@ require_once "template.php";
 <ul>
     <li>
         <label for="">Nom : </label>
-       <?= $_SESSION['nom']  ?>
+        <?= $_SESSION['nom']  ?>
     </li>
 
     <li>

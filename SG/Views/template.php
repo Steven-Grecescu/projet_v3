@@ -19,14 +19,17 @@
         <div>
             <a href="/accueil"><img srcset="/public/images/Logo_Small.jpg 384w, /public/images/Logo_Medium.jpg 768w, /public/images/Logo.jpg 1920w" sizes="(max-width:1920px) 384px,768,1920px" src="/public/images/Logo.jpg" alt="Logo"></a>
         </div>
-        <input placeholder="Effectuer une recherche...">
+        <!-- <form method="GET" action="/search"> -->
+    <input type="text" name="query" placeholder="Effectuer une recherche...">
+    <!-- <button type="submit">Rechercher</button>
+</form> -->
         <div>
             <a href="panier"><img src="/public/images/panier.png" alt=""></a>
         </div>
         <section class="showcase">
       <div class="menu">
         <ul>
-        <?php if (isset($_SESSION['nom'])): ?>
+        <?php if(isset($_SESSION['nom'])): ?>
           <a href="/compte">Compte de <?= $_SESSION['nom'] ?></a>
         <?php endif; ?>
           <a href="/accueil">Accueil</a>
@@ -35,12 +38,10 @@
           <a href="/garçon">Garçon</a>
           <a href="/fille">Fille</a>
           <a href="/panier">Panier</a>
-          <?php if($_SESSION['role']=="admin"){
-
+          <?php if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
           ?>
-              <a href="crud">GESTION DU STOCK</a>
+              <a href="crud">CRUD</a>
               <?php }?>
-        
           <button class="closeMenu">X</button>
         </ul>
       </div>

@@ -24,24 +24,11 @@ class ArticleController{
 
     public function afficherArticle($id) {
             $article = $this->articleManager->getArticleById($id);
-    
-            if ($article) {
-                
-                return "<div>
-                            <h2>" . $article->getNomArticle() . "</h2>
-                            <img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $article->getImageArticle() . "' alt='img'>
-                            <p>Description : " . $article->getDescriptionArticle() . "</p>
-                            <p>Taille : " . $article->getTailleArticle() . "</p>
-                            <p>Prix : " . $article->getPrixArticle() . " €</p>
-                            <p>Ref : " . $article->getRefArticle() . "</p>
-                            <form method='POST' action='/Models/Panier.php'>
-                                <input type='hidden' name='idArticle' value='" . $article->getIdArticle() . "'>
-                                <button type='submit'>Ajouter au panier</button>
-                            </form>
-                        </div>";
-            } else {
-                return "<div class='article'>Article non trouvé</div>";
+            if ($article === null){
+                echo "Article not found";
+                return;
             }
+                require_once "Views/afficherArticle.view.php";
         }
 
 
@@ -51,10 +38,10 @@ class ArticleController{
         if ($articles) {
                 
             return "<div>
-                        <h2>" . $articles->getNomArticle() . "</h2>
-                        <img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $articles->getImageArticle() . "' alt='img'>
-                        <p>Taille : " . $articles->getTailleArticle() . "</p>
-                        <p>Prix : " . $articles->getPrixArticle() . " €</p>
+                        <td><h2>" . $articles->getNomArticle() . "</h2></td>
+                        <td><img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $articles->getImageArticle() . "' alt='img'></td>
+                        <td>Taille : " . $articles->getTailleArticle() . "</td>
+                        <td>Prix : " . $articles->getPrixArticle() . " €</td>
                     </div>";
         } else {
             return "<div class='article'>Article non trouvé</div>";
@@ -116,6 +103,12 @@ class ArticleController{
         header('Location: ' .URL. "crud");
     }
 
+    public function suppressionArticlePanier($id){
+
+        $this->articleManager->suppressionArticlePanierBD($id);
+        header('Location: ' .URL. "panier");
+    }
+
     public function modificationArticle($id){
         $articles = $this->articleManager->getArticleById($id);
         require "Views/modifierArticle.view.php";
@@ -133,5 +126,11 @@ class ArticleController{
         }
         $this->articleManager->modifArticleBD($_POST['identifiant'],$_POST['nom'],$_POST['description'],$_POST['taille'],$_POST['prix'],$_POST['genre'],$_POST['type'],$_POST['ref'],$nomImageAdd);
         header('Location: '. URL . "crud");
+    }
+
+    public function searchArticles() {
+        $query = isset($_GET['query']) ? $_GET['query'] : '';
+        $articles = $this->articleManager->searchArticles($query);
+        require_once "Views/searchResults.view.php";
     }
 }

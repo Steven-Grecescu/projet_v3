@@ -2,6 +2,7 @@
 define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS'])? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 require_once "Controller/ArticleController.php";
+
 $ArticleController = new ArticleController;
 session_start();
 try{
@@ -9,9 +10,6 @@ try{
         require_once "Views/accueil.view.php";
     }else{
         $url = explode("/",filter_var($_GET['page']),FILTER_SANITIZE_URL);
-        // echo "<pre>";
-        // print_r($url);
-        // echo "</pre>";
         switch($url[0]){
             case "accueil" : require_once "Views/accueil.view.php";
             
@@ -42,15 +40,16 @@ try{
                 break;
 
             case "article":
-                if (!empty($url[1])) {
+                if (!empty($url[1])) 
                     $ArticleController->afficherArticle(intval($url[1]));
-                } else {
+                else {
                     throw new Exception("Article non spécifié");
                 }
                 break;
 
             case "homme":
                 require_once "Views/homme.php";
+
                 break;
 
             case "femme":
@@ -66,6 +65,7 @@ try{
                 break;
 
             case "panier":
+                
                 require_once "Views/panier.view.php";
                 break;
 
@@ -79,6 +79,14 @@ try{
 
             case "compte":
                 require_once "Views/compte.view.php";
+                break;
+
+            // case "search":
+            //     require_once "Views/searchResults.view.php";
+            //     break;
+
+            case "removeItem":
+                $ArticleController->suppressionArticlePanier($url[1]);
                 break;
 
             default:

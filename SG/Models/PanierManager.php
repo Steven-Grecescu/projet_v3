@@ -5,7 +5,6 @@ class PanierManager extends BDConnexion{
     public function ajoutArticle($paniers){
         $this->panier[] = $paniers;
     }
-
     public function getPanier(){return $this->panier;}
     public function chargementPanier(){
         $idClient = $_SESSION['idClient'];
@@ -22,14 +21,4 @@ class PanierManager extends BDConnexion{
         }
     }
 
-    // public function afficherPanier($id){
-    //     $req = $this->getBDD()->prepare('SELECT * FROM articles WHERE idArticles_Articles = $id');
-    //     $req->execute();
-    //     $mesArticlesPaniers = $req->fetchAll(PDO::FETCH_ASSOC);
-    //     $req->closeCursor();
-
-    //     echo $mesArticlesPaniers;
-
-
-    // }
     }

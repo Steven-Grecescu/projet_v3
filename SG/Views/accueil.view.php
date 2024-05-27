@@ -9,43 +9,21 @@ require_once "./Models/ArticleManager.php";
 ?>
 
 <main>
-
-    <div>
-
-
-    <!-- ------------------------------------------------------------------------ -->
-        
-        <!-- <h3>Image</h3>
-        <h3>Titre</h3>
-        <h3>Description</h3>
-        <h3>Actions</h3> -->
-
-        <?php
-
-
-
-        ?>
-
-          <!-- <div class="slideshow">
-            <div class="slide">
-              <img src="" alt="Image 1">
-              <p> Caption 1 </p>
+    <div id="carousel" class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/public/images/vetementhomme.jpg" alt="Image 1">
             </div>
-            <div class="slide">
-              <img src="" alt="Image 2">
-              <p> Caption 2 </p>
+            <div class="carousel-item">
+                <img src="/public/images/vetementhomme.jpg" alt="Image 2">
             </div>
-            <div class="slide">
-              <img src="" alt="Image 3">
-              <p> Caption 3 </p>
+            <div class="carousel-item">
+                <img src="/public/images/vetementhomme.jpg" alt="Image 3">
             </div>
-        </div> -->
-
-          
-      <?//php endfor; ?>
-
+        </div>
+        <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
     </div>
-
 </main>
 
 <section>

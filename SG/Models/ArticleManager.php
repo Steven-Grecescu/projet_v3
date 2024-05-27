@@ -60,9 +60,21 @@ class ArticleManager extends BDConnexion{
     }
 
     public function suppressionArticleBD($id){
-        $req = "DELETE FROM articles WHERE idArticles_Articles = :idArticles_Articles";
+        $req = "DELETE FROM panier WHERE idPanier_Panier = :idPanier_Panier";
         $stmt = $this->getBDD()->prepare($req);
-        $stmt->bindValue(":idArticles_Articles",$id,PDO::PARAM_INT);
+        $stmt->bindValue(":idPanier_Panier",$id,PDO::PARAM_INT);
+        $resultat = $stmt->execute();
+        $stmt->closeCursor();
+        if($resultat>0){
+        $article=$this->getArticleById($id);
+        unset($article);
+        }
+    }
+
+    public function suppressionArticlePanierBD($id){
+        $req = "DELETE FROM panier WHERE idPanier_Panier = :idPanier_Panier";
+        $stmt = $this->getBDD()->prepare($req);
+        $stmt->bindValue(":idPanier_Panier",$id,PDO::PARAM_INT);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
         if($resultat>0){
@@ -98,4 +110,30 @@ class ArticleManager extends BDConnexion{
             $this->getArticleById($id)->setImageArticle($image);
         }
     }
+
+    public function searchArticles($query) {
+        $req = $this->getBDD()->prepare('SELECT * FROM articles WHERE nomArticle_Articles LIKE :query OR description_Articles LIKE :query');
+        $req->bindValue(':query', '%' . $query . '%', PDO::PARAM_STR);
+        $req->execute();
+        $results = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        $searchResults = [];
+        foreach ($results as $value) {
+            $searchResults[] = new Articles(
+                $value['idArticles_Articles'],
+                $value['nomArticle_Articles'],
+                $value['description_Articles'],
+                $value['prix_Articles'],
+                $value['genre_Articles'],
+                $value['type_Articles'],
+                $value['taille_Articles'],
+                $value['ref_Articles'],
+                $value['image_Articles']
+            );
+        }
+        return $searchResults;
+    }
+
+
 }

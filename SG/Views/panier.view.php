@@ -20,47 +20,35 @@ require_once "Models/PanierManager.php";
         
 ?>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .table-container {
-            margin: 20px;
-            overflow-x: auto;
-        }
-        .article-image {
-            max-width: 100px; /* Vous pouvez ajuster la taille ici */
-            max-height: 100px; /* Vous pouvez ajuster la taille ici */
-        }
+
     </style>
 <div class="table-container">
+<?php if (isset($panier)):?>
     <table class="">
         <thead class="table-light">
             <caption>Votre Panier</caption>
             <tr>
+                <th>Nom</th>
+                <th>Taille</th>
                 <th>Article</th>
                 <th>Prix</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
+            
             <?php foreach ($panier as $articlePanier): ?>
                 <tr class="table-primary">
-                    <td><?= ($ArticleController->afficherArticlePanier($articlePanier->getIdArticle())) ?></td>
-                    <td><?= ($articlePanier->getQuantierPanier()) ?></td>
-                    
+                    <?= ($ArticleController->afficherArticlePanier($articlePanier->getIdArticle())) ?>
+                    <td><form action="<?= URL ?>removeItem/<?=$articlePanier->getIdPanier();?>" method="post">
+                        <input type="hidden" value="<?= $articlePanier->getIdArticle() ?>">
+                        <button type="submit">Supprimer</button>
+                    </form></td>
                 </tr>
             <?php endforeach; ?>
+            <?php else:  ?>
+                <p>Votre panier est vide</p>
+                <?php endif ?>
         </tbody>
     </table>
 </div>

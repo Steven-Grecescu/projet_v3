@@ -101,9 +101,8 @@ article img {
 }
 @media screen and (max-width: 384px) {
   main {
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    background-image: url('/Genres');
     background-color: #9aaaaa;
     background-size: 100% 100%;
     background-position: center;
@@ -113,6 +112,7 @@ article img {
     display: flex;
     flex-flow: column;
     align-items: center;
+    background-color: #9aaaaa;
     width: 100%;
     height: 100%;
   }

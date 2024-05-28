@@ -12,6 +12,9 @@ require_once "./Article.class.php";
         $req->bindValue(':idClients_Panier', $idClient,);
         $req->bindValue(':idArticles_Panier', $idArticle,);
         $resultat = $req->execute();
+        header('Location: '. "/panier");
+    }else{
+        echo "erreur";
     }
 
 

@@ -25,12 +25,13 @@ require_once "Models/PanierManager.php";
 <div class="table-container">
 <?php if (isset($panier)):?>
     <table class="">
+        <caption>Votre Panier</caption>
         <thead class="table-light">
-            <caption>Votre Panier</caption>
+
             <tr>
                 <th>Nom</th>
+                <th>Image</th>
                 <th>Taille</th>
-                <th>Article</th>
                 <th>Prix</th>
                 <th>Action</th>
             </tr>
@@ -39,7 +40,7 @@ require_once "Models/PanierManager.php";
             
             <?php foreach ($panier as $articlePanier): ?>
                 <tr class="table-primary">
-                    <?= ($ArticleController->afficherArticlePanier($articlePanier->getIdArticle())) ?>
+                    <?= $ArticleController->afficherArticlePanier($articlePanier->getIdArticle()) ?>
                     <td><form action="<?= URL ?>removeItem/<?=$articlePanier->getIdPanier();?>" method="post">
                         <input type="hidden" value="<?= $articlePanier->getIdArticle() ?>">
                         <button type="submit">Supprimer</button>

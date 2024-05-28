@@ -12,13 +12,13 @@ require_once "./Models/ArticleManager.php";
     <div id="carousel" class="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/public/images/vetementhomme.jpg" alt="Image 1">
+                <a href="/article/4"><img src="/public/images/vetementhomme.jpg" alt="Image 1"></a>
             </div>
             <div class="carousel-item">
-                <img src="/public/images/vetementhomme.jpg" alt="Image 2">
+                <a href="/article/4"><img src="/public/images/vetementhomme.jpg" alt="Image 2"></a>
             </div>
             <div class="carousel-item">
-                <img src="/public/images/vetementhomme.jpg" alt="Image 3">
+                <a href="/article/4"><img src="/public/images/vetementhomme.jpg" alt="Image 3"></a>
             </div>
         </div>
         <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>

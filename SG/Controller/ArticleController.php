@@ -37,11 +37,12 @@ class ArticleController{
 
         if ($articles) {
                 
-            return "<div>
+            return "
+                    <div>   
                         <td><h2>" . $articles->getNomArticle() . "</h2></td>
                         <td><img id='imgafficher' class='article-image' src='" . URL . "../../../public/images/" . $articles->getImageArticle() . "' alt='img'></td>
-                        <td>Taille : " . $articles->getTailleArticle() . "</td>
-                        <td>Prix : " . $articles->getPrixArticle() . " €</td>
+                        <td>" . $articles->getTailleArticle() . "</td>
+                        <td>" . $articles->getPrixArticle() . " €</td>
                     </div>";
         } else {
             return "<div class='article'>Article non trouvé</div>";

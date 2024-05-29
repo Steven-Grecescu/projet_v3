@@ -318,8 +318,8 @@ footer button:hover .main-block {
   display: block;
 }
 .carousel img {
-  width: 20%;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 .carousel-control {
   position: absolute;

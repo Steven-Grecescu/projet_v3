@@ -60,9 +60,9 @@ class ArticleManager extends BDConnexion{
     }
 
     public function suppressionArticleBD($id){
-        $req = "DELETE FROM panier WHERE idPanier_Panier = :idPanier_Panier";
+        $req = "DELETE FROM articles WHERE idArticles_Articles = :idArticles_Articles";
         $stmt = $this->getBDD()->prepare($req);
-        $stmt->bindValue(":idPanier_Panier",$id,PDO::PARAM_INT);
+        $stmt->bindValue(":idArticles_Articles",$id,PDO::PARAM_INT);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
         if($resultat>0){

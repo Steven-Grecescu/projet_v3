@@ -24,7 +24,9 @@
     <!-- <button type="submit">Rechercher</button>
 </form> -->
         <div>
+        <?php if(isset($_SESSION['nom'])): ?>
             <a href="/panier"><img src="/public/images/panier.png" alt="panier"></a>
+            <?php endif; ?>
         </div>
         <section class="showcase">
       <div class="menu">

@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS Magasin_De_Vetements;
 USE Magasin_De_Vetements;
 
 DROP TABLE IF EXISTS Clients;
-
+v 
 CREATE TABLE Clients (
     idClients_Clients INT AUTO_INCREMENT NOT NULL,
     nom_Clients VARCHAR(60),

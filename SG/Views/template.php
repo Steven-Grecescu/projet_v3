@@ -49,7 +49,7 @@
       </div>
     </section>
     <a href="login"><img src="/images/icons8-login-50.png" alt=""></a>
-      <button class="btn"> <img src="/public/images/menu-burger.png" alt=""></button>
+    <button class="btn"> <img src="/public/images/menu-burger.png" alt=""></button>
     </header>
 
     <script src="/script.js"> </script>

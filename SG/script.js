@@ -27,7 +27,7 @@ function showSlide(index) {
     }
     slides.forEach((slide, i) => {
         slide.classList.remove('active');
-        if (i === currentIndex) {
+        if (i == currentIndex) {
             slide.classList.add('active');
         }
     });

@@ -8,7 +8,6 @@ require_once "template.php";
 <body>
 <main>
 
-<h1> Vos Informations Personelles</h1>
 
 <ul>
     <li>

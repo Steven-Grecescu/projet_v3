@@ -159,7 +159,7 @@ main .carousel-control.next {
 .crud-table th,
 .crud-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
 }
 .crud-table th {
@@ -367,7 +367,7 @@ footer button:hover .main-block {
 }
 .closeMenu {
   position: absolute;
-  bottom: 10%;
+  bottom: 0%;
   right: 50%;
   font-size: 30px;
   cursor: pointer;

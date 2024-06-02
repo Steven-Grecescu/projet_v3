@@ -47,7 +47,7 @@ setInterval(nextSlide, 5000);
 
 //===========================================================================================
 
-document.querySelector('form').addEventListener('submit', function(event) {
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
     let nom = document.querySelector('input[name="nom"]').value
     let	prenom = document.querySelector('input[name=prenom]').value
     let adresse = document.querySelector('input[name=adresse]').value

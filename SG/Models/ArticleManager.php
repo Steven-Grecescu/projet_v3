@@ -1,6 +1,4 @@
 <?php
-// require_once "C:\Users\DWWM\Desktop\Repo Orga\Magasin-Vetement-SG\Models\Model.class.php";
-// require_once "C:\Users\DWWM\Desktop\Repo Orga\Magasin-Vetement-SG\Models\Article.class.php";
 require_once "Model.class.php";
 require_once "Article.class.php";
 
@@ -84,7 +82,9 @@ class ArticleManager extends BDConnexion{
     }
 
     public function modifArticleBD($id,$nom,$descri,$taille,$prix,$genre,$type,$ref,$image){
-        $req = "UPDATE articles SET nomArticle_Articles = :nomArticle_Articles, description_Articles = :description_Articles,taille_Articles = :taille_Articles,prix_Articles = :prix_Articles,genre_Articles = :genre_Articles,type_Articles = :type_Articles,ref_Articles = :ref_Articles,image_Articles = :image_Articles WHERE idArticles_Articles = :idArticles_Articles";
+        $req = "UPDATE articles SET nomArticle_Articles = :nomArticle_Articles, description_Articles = :description_Articles,taille_Articles = :taille_Articles,prix_Articles = :prix_Articles,genre_Articles = :genre_Articles,
+        type_Articles = :type_Articles,ref_Articles = :ref_Articles,image_Articles = :image_Articles 
+        WHERE idArticles_Articles = :idArticles_Articles";
         $stmt = $this->getBDD()->prepare($req);
         $stmt->bindValue(":idArticles_Articles",$id,PDO::PARAM_INT);
         $stmt->bindValue(":nomArticle_Articles",$nom,PDO::PARAM_STR);

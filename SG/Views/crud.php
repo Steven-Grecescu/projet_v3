@@ -17,47 +17,52 @@ require_once "Controller/ArticleController.php";
 <link rel="stylesheet" href="/public/style.css">
 
 <main>
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Nom</th>
-            <th>Taille</th>
-            <th>Prix</th>
-            <th>Genre</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Ref</th>
-            <th>Supprimer</th>
-            <th>Modifier</th>
-        </tr>
-
-        <!-- J'ai ajouté ça -->
-        <?php
-        $articleManager = new ArticleManager();
-        $articleManager->chargementArticle();
-        $articles = $articleManager->getArticle();
-        ?>
-
-    <?php for($i=0;$i<count($articles);$i++) : ?>
-
-        <tr>
-            <td><img src="../public/images/<?= $articles[$i]->getImageArticle(); ?>" alt="<?= $articles[$i]->getImageArticle(); ?>"></td>
-            <td><a href="<?= URL ?>crud/l/<?= $articles[$i]->getIdArticle();?>"><?= $articles[$i]->getNomArticle();?></a></td>
-            <td><?= $articles[$i]->getTailleArticle(); ?></td>
-            <td><?= $articles[$i]->getPrixArticle();?></td>
-            <td><?= $articles[$i]->getGenreArticle();?></td>
-            <td><?= $articles[$i]->getTypeArticle();?></td>
-            <td><?= $articles[$i]->getDescriptionArticle(); ?></td>
-            <td><?= $articles[$i]->getRefArticle();?></td>
-                <form method="POST" action="<?= URL ?>crud/s/<?=$articles[$i]->getIdArticle();?>"onSubmit="return confirm('Voulez vous vraiment supprimer l'article ?');">
-                <td><button type="submit">Supprimer</button></td>
-                </form>
-                <td><a href="<?= URL?>crud/m/<?=$articles[$i]->getIdArticle();?>"><button>Modifier</button></a></td>
-        </tr>
-
-        <?php endfor; ?>
-    </table>
-    <a href="<?= URL ?>crud/a"><button>Ajouter</button></a>
+<table class="crud-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Taille</th>
+                    <th>Prix</th>
+                    <th>Genre</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Réf</th>
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $articleManager = new ArticleManager();
+                $articleManager->chargementArticle();
+                $articles = $articleManager->getArticle();
+                ?>
+                <?php if (isset($articles)) : ?>
+                    <?php foreach ($articles as $article) : ?>
+                        <tr>
+                            <td><img src="../public/images/<?= $article->getImageArticle(); ?>" alt="<?= $article->getNomArticle(); ?>" class="article-image"></td>
+                            <td><a href="<?= URL ?>crud/l/<?= $article->getIdArticle(); ?>" class="article-link"><?= $article->getNomArticle(); ?></a></td>
+                            <td><?= $article->getTailleArticle(); ?></td>
+                            <td><?= $article->getPrixArticle(); ?></td>
+                            <td><?= $article->getGenreArticle(); ?></td>
+                            <td><?= $article->getTypeArticle(); ?></td>
+                            <td><?= $article->getDescriptionArticle(); ?></td>
+                            <td><?= $article->getRefArticle(); ?></td>
+                            <td>
+                                <form method="POST" action="<?= URL ?>crud/s/<?= $article->getIdArticle(); ?>" onsubmit="return confirm('Voulez-vous vraiment supprimer l\'article ?');">
+                                    <button type="submit" class="btn-delete">Supprimer</button>
+                                </form>
+                            </td>
+                            <td>
+                                <a href="<?= URL ?>crud/m/<?= $article->getIdArticle(); ?>" class="btn-modify"><button>Modifier</button></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <a href="<?= URL ?>crud/a" class="btn-add"><button>Ajouter</button></a>
     <?php ?>
 </main>
 

@@ -14,6 +14,7 @@
         $articleManager = new ArticleManager();
         $articleManager->chargementArticle();
         $articles = $articleManager->getArticle();
+        
         ?>
     <header>
         <div>
@@ -28,7 +29,7 @@
             <a href="/panier"><img src="/public/images/panier.png" alt="panier"></a>
             <?php endif; ?>
         </div>
-        <section class="showcase">
+        <section class="showcase" id="menuBurger">
       <div class="menu">
         <ul>
         <?php if(isset($_SESSION['nom'])): ?>
@@ -39,7 +40,6 @@
           <a href="/femme">Femme</a>
           <a href="/garçon">Garçon</a>
           <a href="/fille">Fille</a>
-          <a href="/panier">Panier</a>
           <?php if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
           ?>
               <a href="crud">CRUD</a>

@@ -1,5 +1,5 @@
 <?php ob_start() ?>
- <link rel="stylesheet" href="style2.css">
+ <link rel="stylesheet" href="style.css">
 
 <form method='POST' action="<?= URL ?>crud/mv" enctype="multipart/form-data">
     <label for="nom">Nom :</label><br>

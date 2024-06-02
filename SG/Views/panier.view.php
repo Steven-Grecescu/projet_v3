@@ -19,9 +19,7 @@ require_once "Models/PanierManager.php";
     
         
 ?>
-    <style>
 
-    </style>
 <div class="table-container">
 <?php if (isset($panier)):?>
     <table class="">

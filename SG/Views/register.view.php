@@ -30,13 +30,13 @@
 			<br>
 			<input type="text" placeholder="Adresse" name="adresse">
 			<br>
-			<input type="tel" id="phone" name="phone" placeholder="+33">
+			<input type="number" id="phone" name="phone" placeholder="+33">
 			<br>
 			<input type="text" placeholder="Email" name="email">
 			<br>
 			<input type="password" placeholder="Mot de passe" name="mdp">
 			<br>
-			<input type="password" placeholder="Confirmation du mot de passe">
+			<input type="password" placeholder="Confirmation du mot de passe" name="mdp_confirm">
 		</div>
 			
 			<br><br>
@@ -46,6 +46,8 @@
 </form>
 	
 </div>
+<script>
 
+    </script>
 </body>
 </html>

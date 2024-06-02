@@ -17,7 +17,7 @@ class PanierManager extends BDConnexion{
         $req->closeCursor();
 
         foreach($mesArticlesPaniers as $value){
-            $art = new Panier($value['idPanier_Panier'],$value['idClients_Panier'],$value['idArticles_Panier'],$value['quantiterArticles_Panier'],$value['commande_idcommande_commande']);
+            $art = new Panier($value['idPanier_Panier'],$value['idClients_Panier'],$value['idArticles_Panier'],$value['commande_idcommande_commande']);
             $this->ajoutArticle($art);
 
         }
